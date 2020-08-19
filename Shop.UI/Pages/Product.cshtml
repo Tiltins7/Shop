@@ -1,0 +1,85 @@
+﻿@page "{name}"
+@model ProductModel
+@{
+}
+
+<div class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-6">
+                    <figure class="image is-3by2" >
+                        <img src="~/images/hat1.jpg" />
+                    </figure>
+                </div>
+
+                <div class="column is-6">
+                    <section class="content">
+                        
+                            <p class="title">@Model.Product.Name</p>
+                            <p class="subtitle">@Model.Product.Description</p>
+                        
+                        <main>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            </p>
+                            </main>
+                        <footer>
+                            <form method="post">
+
+                                <p>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Size</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <div class="select is-fullwidth">
+                                                        <select asp-for="CartViewModel.StockId">
+                                                            @foreach (var s in Model.Product.Stock)
+                                                            {
+
+                                                                <option value="@s.Id">@s.Description</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Qty</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <input class="input" asp-for="CartViewModel.Qty" value="1" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <button class="button is-success" type="submit">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p>
+                                
+                            </form>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
